@@ -87,7 +87,6 @@ function App() {
   return (
     <>
       <div className="container">
-        <h1>Calculator App</h1>
         <div id="calculator">
 
           <div id="display" style={{textAlign:"right"}}>
