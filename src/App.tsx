@@ -15,11 +15,11 @@ function App() {
       return /[*/+-]/.test(symbol);  //return true if the symbol is operator
     };
 
-    const calculate = (symbol: string) => {
+    const calculate = () => {
       //if last char is an operator, do nothing
       if (isOperator(et.charAt(et.length - 1))) return;
 
-      // clean the expression so that two operator in a row uises the last operator
+      // clean the expression so that two operator in a row uses the last operator
       //5 * - + 5 = 10
       const parts = et.split(" ");
       const newParts = [];
@@ -70,7 +70,7 @@ function App() {
       }
     }else if (symbol === "."){
       //split by operators and get the last number
-      const lastNumber = expression.split(/[-+/*]/g).pop();
+      const lastNumber = expression.split(/[-+/*]/g).pop();             //the split(/[-+/*]/) eg 12+34*56  => ["12", "34", "56"]   .pop() removes the last element from an array. it would return "56"
       // if last number already has a decimal, dont add another
       if(lastNumber?.includes(".")) return;
       setExpression(expression + symbol);
@@ -78,7 +78,7 @@ function App() {
       if(expression.charAt(0) === "0"){
         setExpression(expression.slice(1)+symbol);
       }else{
-        setExpression(expression + symbol)
+        setExpression(expression + symbol);
       }
     }
 
@@ -95,14 +95,14 @@ function App() {
             <div id="expression">{expression}</div>
           </div>
           
-          <button id="clear" className="light-gray" onClick={() => buttonPress("clear")} >C</button>
+          <button id="clear" className="light-gray" style={{color: "red"}} onClick={() => buttonPress("clear")} >C</button>
           <button id="negative" className="light-gray" onClick={() => buttonPress("negative")} >+/-</button>
           <button id="percent" className="light-gray" onClick={() => buttonPress("percent")} >%</button>
           <button id="divide" className="yellow" onClick={() => buttonPress("/")} >/</button>
           <button id="seven" className="dark-gray" onClick={() => buttonPress("7")} >7</button>
           <button id="eight" className="dark-gray" onClick={() => buttonPress("8")} >8</button>
           <button id="nine" className="dark-gray" onClick={() => buttonPress("9")} >9</button>
-          <button id="multiply" className="yellow" onClick={() => buttonPress("*")} >*</button>
+          <button id="multiply" className="yellow" onClick={() => buttonPress("*")} >x</button>
           <button id="four" className="dark-gray" onClick={() => buttonPress("4")} >4</button>
           <button id="five" className="dark-gray" onClick={() => buttonPress("5")} >5</button>
           <button id="six" className="dark-gray" onClick={() => buttonPress("6")} >6</button>
@@ -113,7 +113,7 @@ function App() {
           <button id="add" className="yellow" onClick={() => buttonPress("+")} >+</button>
           <button id="zero" className="dark-gray" onClick={() => buttonPress("0")} >0</button>
           <button id="decimal" className="dark-gray" onClick={() => buttonPress(".")} >.</button>
-          <button id="equals" className="yellow" onClick={() => buttonPress("=")} >=</button>
+          <button id="equals" className="yellow" style={{backgroundColor: "green", color: "white"}} onClick={() => buttonPress("=")} >=</button>
           
         </div>
       </div>

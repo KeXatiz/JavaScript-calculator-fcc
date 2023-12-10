@@ -19,7 +19,7 @@
     display: grid;
     grid-template-areas: 
       "display display display display"
-      "clear negative percentage divide"
+      "clear negative percent divide"
       "seven eight nine multiply"
       "four five six subtract"
       "one two three add"
@@ -34,7 +34,8 @@
 }
 
 .light-gray{
-    background-color: var(--light-gray);
+    background-color: var(--dark-gray);
+    color: rgb(95, 184, 95);
 }
 
 .dark-gray{
@@ -43,8 +44,8 @@
 }
 
 .yellow{
-    background-color: var(--yellow);
-    color: white;
+    background-color: var(--dark-gray);
+    color: rgb(95, 184, 95);
 }
 
 button{
@@ -68,7 +69,7 @@ button:active{
     font-size: 48px;
 }
 
-#exparesion{
+#expression{
     height: 40px;
     font-size: 40px;
     color: var(--dark-gray);
@@ -81,8 +82,8 @@ button:active{
 #negative{
     grid-area: negative;
 }
-#percentage{
-    grid-area: percentage;
+#percent{
+    grid-area: percent;
 }
 #divide{
     grid-area: divide;
